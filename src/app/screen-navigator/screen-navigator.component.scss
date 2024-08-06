@@ -1,0 +1,28 @@
+.screen-navigator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        margin: 0 20px;
+      }
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+  }
+
+.isSelected mat-icon{
+  span {
+    color: #FF7744;
+  }
+}
