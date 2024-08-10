@@ -1,16 +1,12 @@
 .about-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Garante que o contêiner ocupe a tela inteira */
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
-.about-content {
-  flex: 1; /* O conteúdo ocupará o espaço restante acima da bottom bar */
-  padding: 16px;
-  /* Estilos adicionais para o conteúdo da about */
-}
-
-.bottom-bar {
+.screen-navigator {
   position: fixed;
   bottom: 0;
   left: 0;

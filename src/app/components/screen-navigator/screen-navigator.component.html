@@ -1,11 +1,11 @@
-<mat-toolbar color="primary" class="bottom-bar">
-  <button mat-icon-button (click)="navigate('home')">
+<mat-toolbar color="primary" class="screen-navigator ">
+  <button mat-icon-button (click)="navigate('home')" [ngClass]="{'active': isActive('home')}">
     <mat-icon>home</mat-icon>
   </button>
-  <button mat-icon-button (click)="navigate('help')">
+  <button mat-icon-button (click)="navigate('help')" [ngClass]="{'active': isActive('help')}">
     <mat-icon>help</mat-icon>
   </button>
-  <button mat-icon-button (click)="navigate('about')">
+  <button mat-icon-button (click)="navigate('about')" [ngClass]="{'active': isActive('about')}">
     <mat-icon>info</mat-icon>
   </button>
 </mat-toolbar>

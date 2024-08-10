@@ -1,0 +1,67 @@
+.phase-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  width: 80vw;
+  border-radius: 15px;
+  background-color: #FF7744;
+}
+
+@media (min-width: 1024px) {
+  .phase-card {
+    width: 25vw;
+  }
+
+  .enter-button {
+    width: 16%;
+  }
+}
+
+.phase-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  padding-left: 16px;
+  padding-top: 16px;
+  border-radius: 15px;
+  color: white;
+}
+
+.phase-info h4, .phase-info p {
+  margin: 0;
+  padding: 0;
+}
+
+.enter-button {
+  width: 25%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EB6635;
+  border: none;
+  border-radius: 15px;
+}
+
+.enter-button:hover {
+  background-color: #df6336;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+mat-icon {
+  font-size: 24px;
+  color: white;
+}
+
+.enter-button mat-icon {
+  color: white;
+}
