@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './phase-card.component.html',
   styleUrls: ['./phase-card.component.scss']
@@ -20,7 +20,7 @@ export class PhaseCardComponent {
 
   constructor(private router: Router) {}
 
-  navigate(screen: string): void {
-    this.router.navigate([`/${screen}`]);
+  navigateToPhase(): void {
+    this.router.navigate(['/content-switcher', this.phaseNumber]);
   }
 }

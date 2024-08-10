@@ -8,6 +8,7 @@ import { QuestionComponent } from './screens/question/question.component';
 import { TextComponent } from './screens/text/text.component';
 import { TopicComponent } from './screens/topic/topic.component';
 import { VideoComponent } from './screens/video/video.component';
+import { ContentSwitcherComponent } from './screens/content-switcher/content-switcher.component';
 
 export const routes: Routes = [
   { path: 'start', component: StartComponent },
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'topic', component: TopicComponent },
   { path: 'text', component: TextComponent },
   { path: 'video', component: VideoComponent },
+  { path: 'content-switcher/:phaseId', component: ContentSwitcherComponent },
   { path: '', redirectTo: '/start', pathMatch: 'full' }
 ];
