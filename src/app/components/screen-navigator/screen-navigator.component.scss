@@ -1,3 +1,5 @@
+@import "../../../assets/styles/variables";
+
 .screen-navigator {
   display: flex;
   justify-content: center;
@@ -7,7 +9,7 @@
   left: 0;
   width: 100%;
   padding: 40px;
-  background-color: white;
+  background-color: $secondary-color;
   z-index: 1000;
 }
 
@@ -25,8 +27,8 @@ button {
 }
 
 button.active {
-  background-color: #EB6635;
-  color: white;
+  background-color: $primary-color;
+  color: $secondary-color;
 }
 
 mat-icon {

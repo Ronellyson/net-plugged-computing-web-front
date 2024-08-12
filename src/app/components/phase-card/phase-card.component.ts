@@ -2,13 +2,14 @@ import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { PhaseStateService } from '../../services/phase-state.service';
 
 @Component({
   selector: 'app-phase-card',
   standalone: true,
   imports: [
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './phase-card.component.html',
   styleUrls: ['./phase-card.component.scss']
@@ -16,11 +17,20 @@ import { Router } from '@angular/router';
 export class PhaseCardComponent {
   @Input() phaseNumber!: number;
   @Input() phaseTitle!: string;
-  @Input() phaseDescription!: string;
 
-  constructor(private router: Router) {}
+  constructor(
+    private phaseStateService: PhaseStateService,
+    private router: Router
+  ) {}
 
-  navigate(screen: string): void {
-    this.router.navigate([`/${screen}`]);
+  selectPhase(): void {
+    this.phaseStateService.setSelectedPhase(this.phaseNumber);
+
+    this.phaseStateService.getSelectedPhase().subscribe(selectedPhase => {
+      if (selectedPhase) {
+        console.log('SelectedPhase: ', selectedPhase);
+        this.router.navigate(['/phases-presentation']);
+      }
+    });
   }
 }

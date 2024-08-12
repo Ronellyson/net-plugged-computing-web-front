@@ -1,3 +1,5 @@
+@import "../../../assets/styles/variables";
+
 .phase-card {
   display: flex;
   flex-direction: row;
@@ -6,7 +8,7 @@
   height: 10vh;
   width: 80vw;
   border-radius: 15px;
-  background-color: #FF7744;
+  background-color: $primary-color;
 }
 
 @media (min-width: 1024px) {
@@ -29,7 +31,7 @@
   padding-left: 16px;
   padding-top: 16px;
   border-radius: 15px;
-  color: white;
+  color: $secondary-color;
 }
 
 .phase-info h4, .phase-info p {
@@ -38,19 +40,15 @@
 }
 
 .enter-button {
-  width: 25%;
+  width: 20%;
   height: 100%;
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #EB6635;
+  background-color: $button-color-primary;
   border: none;
   border-radius: 15px;
-}
-
-.enter-button:hover {
-  background-color: #df6336;
 }
 
 button:active {
@@ -59,9 +57,9 @@ button:active {
 
 mat-icon {
   font-size: 24px;
-  color: white;
+  color: $icon-color-primary;
 }
 
 .enter-button mat-icon {
-  color: white;
+  color: $icon-color-primary;
 }
