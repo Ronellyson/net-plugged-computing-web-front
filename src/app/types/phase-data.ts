@@ -4,7 +4,6 @@ export interface PhaseData {
 
 export interface Phase {
   id: number;
-  name: string;
   title: string;
   phasePresentation: Presentation;
   topics: Topic[];
