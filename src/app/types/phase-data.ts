@@ -1,18 +1,14 @@
-export interface PhaseData {
-  phase: Phase;
-}
-
 export interface Phase {
   id: number;
   title: string;
-  phasePresentation: Presentation;
+  phasePresentation: {
+    title: string;
+  };
   topics: Topic[];
-  questionsPresentation: Presentation;
+  questionsPresentation: {
+    title: string;
+  };
   questions: Question[];
-}
-
-export interface Presentation {
-  title: string;
 }
 
 export interface Topic {

@@ -14,7 +14,7 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./phase-card-list.component.scss']
 })
 export class PhaseCardListComponent implements OnInit {
-  phases: { number: number; title: string}[] = [];
+  phases: { id: number; title: string}[] = [];
 
   constructor(private dataService: DataService) {}
 
@@ -25,7 +25,7 @@ export class PhaseCardListComponent implements OnInit {
   loadPhases(): void {
     this.dataService.getPhases().subscribe(phases => {
       this.phases = phases.map(phase => ({
-        number: phase.id,
+        id: phase.id,
         title: phase.title,
       }));
     });

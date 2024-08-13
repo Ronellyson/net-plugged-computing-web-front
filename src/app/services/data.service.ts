@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { PhaseData, Phase } from '../types/phase-data';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Phase, Topic, Content } from '../types/phase-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private dataUrl = '../../data/data.json';
+  private phasesCache: Phase[] | null = null;
 
   constructor() {}
 
   getPhases(): Observable<Phase[]> {
+    if (this.phasesCache) {
+      return of(this.phasesCache);
+    }
+
     return this.fetchData().pipe(
-      map(data => this.transformData(data)),
+      tap(data => {
+        console.log('Fetched phases data:', data);
+        this.phasesCache = data; // Agora data já é um array de Phase
+      }),
       catchError(error => {
         console.error('Error fetching phases:', error);
         return of([]);
@@ -23,12 +31,36 @@ export class DataService {
 
   getPhaseById(id: number): Observable<Phase | null> {
     return this.getPhases().pipe(
-      map(phases => phases.find(phase => phase.id === id) ?? null)
+      map(phases => {
+        const phase = phases.find(phase => phase.id === id);
+        console.log('Fetched phase by ID:', phase);
+        return phase ?? null;
+      })
     );
   }
 
-  private fetchData(): Observable<PhaseData[]> {
-    return new Observable<PhaseData[]>(observer => {
+  getTopicByIndex(phaseId: number, topicIndex: number): Observable<Topic | null> {
+    return this.getPhaseById(phaseId).pipe(
+      map(phase => {
+        const topic = phase?.topics[topicIndex];
+        console.log('Fetched topic by index:', topic);
+        return topic ?? null;
+      })
+    );
+  }
+
+  getContentByIndex(phaseId: number, topicIndex: number, contentIndex: number): Observable<Content | null> {
+    return this.getTopicByIndex(phaseId, topicIndex).pipe(
+      map(topic => {
+        const content = topic?.contents[contentIndex];
+        console.log('Fetched content by index:', content);
+        return content ?? null;
+      })
+    );
+  }
+
+  private fetchData(): Observable<Phase[]> {
+    return new Observable<Phase[]>(observer => {
       fetch(this.dataUrl)
         .then(response => {
           if (!response.ok) {
@@ -36,17 +68,14 @@ export class DataService {
           }
           return response.json();
         })
-        .then((data: PhaseData[]) => {
+        .then((data: Phase[]) => {
           observer.next(data);
           observer.complete();
         })
         .catch(error => {
+          console.error('Error fetching data:', error);
           observer.error(error);
         });
     });
-  }
-
-  private transformData(data: PhaseData[]): Phase[] {
-    return data.map(item => item.phase);
   }
 }
