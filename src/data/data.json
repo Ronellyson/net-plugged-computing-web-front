@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Introdução a Redes de Computadores",
+    "phasePresentation": {
+      "title": "Introdução a Redes de Computadores"
+    },
+    "topics": [
+      {
+        "title": "Por que os computadores precisam se comunicar?",
+        "contents": [
+          {
+            "type": "text",
+            "icon": "share",
+            "text": "É preciso tornar simples o compartilhamento de arquivos com imagens, áudios, fotos, vídeos e textos, por exemplo."
+          },
+          {
+            "type": "text",
+            "icon": "save",
+            "text": "Sem redes de computadores, esses arquivos precisavam ser compartilhados através de pendrives, disquetes, CDs e DVDs, por exemplo."
+          },
+          {
+            "type": "text",
+            "icon": "devices",
+            "text": "Com o avanço das tecnologias e da conectividade entre os dispositivos, alguns desses recursos entraram em desuso."
+          },
+          {
+            "type": "image",
+            "url": "URL_DA_IMAGEM_AQUI",
+            "text": "Para saber o que é uma rede de computadores, voltemos ao passado... Em 1969, nos Estados Unidos, foi construída a Rede da Agência para Projetos de Pesquisa Avançada, que foi a primeira rede de computadores da história, chamada ARPANET. Ela foi criada para fins militares e permitia a comunicação de computadores a longas distâncias."
+          }
+        ]
+      },
+      {
+        "title": "O que é uma rede de computadores?",
+        "contents": [
+          {
+            "type": "text",
+            "icon": "network",
+            "text": "Atualmente, as redes de computadores já não são mais tecnologias exclusivas para fins militares, sendo usadas ao redor do mundo, para conectar dispositivos dos mais variados, indo desde computadores até lâmpadas e relógios."
+          }
+        ]
+      }
+    ],
+    "questionsPresentation": {
+      "title": "Vamos praticar?"
+    },
+    "questions": [
+      {
+        "question": "Qual a principal função das redes de computadores?",
+        "options": [
+          "Compartilhar arquivos",
+          "Conectar dispositivos",
+          "Guardar dados",
+          "Executar aplicações"
+        ],
+        "answer": "Compartilhar arquivos"
+      },
+      {
+        "question": "Quando foi criada a ARPANET?",
+        "options": ["1969", "1989", "1999", "2009"],
+        "answer": "1969"
+      }
+    ]
+  }
+]

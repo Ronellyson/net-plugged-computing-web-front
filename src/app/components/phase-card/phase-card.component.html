@@ -1,9 +1,10 @@
+<!-- phase-card.component.html -->
 <div class="phase-card">
   <div class="phase-info">
-    <h4 class="phase-title">{{ phaseTitle }}</h4>
-    <p class="phase-description">{{ phaseDescription }}</p>
+    <h4 class="phase-id">{{ "Fase " + phaseId }}</h4>
+    <p class="phase-title">{{ phaseTitle }}</p>
   </div>
-  <button class="enter-button" (click)="navigate('home')">
+  <button class="enter-button" (click)="selectPhase()">
     <mat-icon>arrow_forward</mat-icon>
   </button>
 </div>
