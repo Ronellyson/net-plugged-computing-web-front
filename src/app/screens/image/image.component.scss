@@ -63,7 +63,7 @@
   width: 100%;
 }
 
-.video-container img{
+.image-container img{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,7 @@
 }
 
 @media (min-width: 768px) {
-  .video-container img {
+  .image-container img {
     width: 30%;
   }
 }
