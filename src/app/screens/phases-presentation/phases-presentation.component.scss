@@ -46,18 +46,19 @@
 }
 
 .next-button {
-  width: 64px;
-  height: 64px;
+  width: 34px;
+  height: 34px;
   position: absolute;
+  bottom: 20px;
   right: 20px;
-  bottom: 50%;
-  border-radius: 15px;
+  border-radius: 4px;
   transform: translateY(50%);
   background: transparent;
   border: none;
   cursor: pointer;
   background-color: $icon-color-primary;
   color: $icon-color-secondary;
+
 }
 
 .next-button:active {
