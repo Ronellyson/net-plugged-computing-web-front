@@ -6,6 +6,7 @@ import { PhaseStateService } from '../../services/phase-state.service';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { close, goBack, goToNextScreen, extractPhaseIdFromCurrentUrl } from '../../utils/utils';
 
 @Component({
   selector: 'app-text-content',
@@ -30,7 +31,7 @@ export class TextComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute
   ) {
-    this.phaseNumber$ = of(this.extractPhaseIdFromCurrentUrl());
+    this.phaseNumber$ = of(extractPhaseIdFromCurrentUrl(this.router));
 
     this.topicName$ = this.phaseNumber$.pipe(
       switchMap(phaseId =>
@@ -81,7 +82,7 @@ export class TextComponent implements OnInit {
       switchMap(params => {
         const topicIndex = +params.get('topicIndex')!;
         const contentIndex = +params.get('contentIndex')!;
-        const phaseId = this.extractPhaseIdFromCurrentUrl();
+        const phaseId = extractPhaseIdFromCurrentUrl(this.router);
 
         return this.phaseStateService.getPhaseById(phaseId).pipe(
           tap(phase => {
@@ -96,33 +97,14 @@ export class TextComponent implements OnInit {
   }
 
   close() {
-    this.router.navigate(['/home']);
+    close(this.router);
   }
 
   goBack() {
-    this.location.back();
+    goBack(this.location);
   }
 
   goToNextScreen() {
-    this.nextScreenUrl$.subscribe(nextUrl => {
-      if (nextUrl) {
-        this.router.navigate([`/${nextUrl}`]);
-      } else {
-        console.warn('No next screen URL available.');
-      }
-    });
-  }
-
-  private extractPhaseIdFromCurrentUrl(): number {
-    const currentUrl = this.router.url;
-    const segments = currentUrl.split('/');
-
-    if (segments.length > 2) {
-      const phaseIdStr = segments[2];
-      const phaseId = parseInt(phaseIdStr, 10);
-      return isNaN(phaseId) ? 0 : phaseId;
-    }
-
-    return 0;
+    goToNextScreen(this.nextScreenUrl$, this.router);
   }
 }

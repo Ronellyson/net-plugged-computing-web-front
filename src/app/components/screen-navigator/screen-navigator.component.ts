@@ -22,7 +22,6 @@ export class ScreenNavigatorComponent {
   currentRoute: string = '';
 
   constructor(private router: Router, private route: ActivatedRoute) {
-    // Update currentRoute whenever the route changes
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {

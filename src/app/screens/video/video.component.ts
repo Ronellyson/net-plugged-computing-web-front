@@ -6,10 +6,11 @@ import { PhaseStateService } from '../../services/phase-state.service';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {SafeUrlPipe} from '../../pipes/safe-url-pipe.pipe'
+import { SafeUrlPipe } from '../../pipes/safe-url-pipe.pipe';
+import { close, goBack, goToNextScreen, extractPhaseIdFromCurrentUrl } from '../../utils/utils';
 
 @Component({
-  selector: 'app-text-content',
+  selector: 'app-video-content',
   standalone: true,
   imports: [
     CommonModule,
@@ -32,7 +33,7 @@ export class VideoComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute
   ) {
-    this.phaseNumber$ = of(this.extractPhaseIdFromCurrentUrl());
+    this.phaseNumber$ = of(extractPhaseIdFromCurrentUrl(this.router));
 
     this.topicName$ = this.phaseNumber$.pipe(
       switchMap(phaseId =>
@@ -52,21 +53,12 @@ export class VideoComponent implements OnInit {
       switchMap(([phaseId, topicIndex, contentIndex]) =>
         this.phaseStateService.getPhaseById(phaseId).pipe(
           map(phase => {
-            if (phase && phase.topics[topicIndex]) {
-              const content = phase.topics[topicIndex].contents[contentIndex];
-              if (content && content.url) {
-                return content.url;
-              }
-            }
-            return undefined;
+            const content = phase?.topics[topicIndex]?.contents[contentIndex];
+            return content?.url;
           })
         )
       )
     );
-
-    this.url$.subscribe(url => {
-      console.log('URL:', url);
-    });
 
     this.contentText$ = combineLatest([
       this.phaseNumber$,
@@ -84,7 +76,7 @@ export class VideoComponent implements OnInit {
       switchMap(phaseId => {
         const topicIndex = +this.route.snapshot.paramMap.get('topicIndex')!;
         const contentIndex = +this.route.snapshot.paramMap.get('contentIndex')!;
-        const currentUrl = `text/${phaseId}/${topicIndex}/${contentIndex}`;
+        const currentUrl = `video/${phaseId}/${topicIndex}/${contentIndex}`;
         return this.phaseStateService.getNextScreenUrl(currentUrl);
       })
     );
@@ -95,7 +87,7 @@ export class VideoComponent implements OnInit {
       switchMap(params => {
         const topicIndex = +params.get('topicIndex')!;
         const contentIndex = +params.get('contentIndex')!;
-        const phaseId = this.extractPhaseIdFromCurrentUrl();
+        const phaseId = extractPhaseIdFromCurrentUrl(this.router);
 
         return this.phaseStateService.getPhaseById(phaseId).pipe(
           tap(phase => {
@@ -110,31 +102,14 @@ export class VideoComponent implements OnInit {
   }
 
   close() {
-    this.router.navigate(['/home']);
+    close(this.router);
   }
 
   goBack() {
-    this.location.back();
+    goBack(this.location);
   }
 
   goToNextScreen() {
-    this.nextScreenUrl$.subscribe(nextUrl => {
-      if (nextUrl) {
-        this.router.navigate([`/${nextUrl}`]);
-      }
-    });
-  }
-
-  private extractPhaseIdFromCurrentUrl(): number {
-    const currentUrl = this.router.url;
-    const segments = currentUrl.split('/');
-
-    if (segments.length > 2) {
-      const phaseIdStr = segments[2];
-      const phaseId = parseInt(phaseIdStr, 10);
-      return isNaN(phaseId) ? 0 : phaseId;
-    }
-
-    return 0;
+    goToNextScreen(this.nextScreenUrl$, this.router);
   }
 }
