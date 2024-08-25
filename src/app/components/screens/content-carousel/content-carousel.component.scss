@@ -1,0 +1,11 @@
+@import "../../../../assets/styles/variables";
+
+.title {
+  color: red;
+}
+
+.carousel-item {
+  height: 100vh;
+  width: 100vw;
+  background-color: $primary-color;
+}

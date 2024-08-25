@@ -1,0 +1,21 @@
+<section class="image-phase-container">
+  <div class="phase-nav">
+    <div class="phase-title">
+      <h1 class="phase-number" *ngIf="phaseNumber$ | async as phaseNumber">Fase {{ phaseNumber }}</h1>
+    </div>
+  </div>
+
+  <div class="header-info">
+    <h2 class="topic-name" *ngIf="topicName$ | async as topicName">{{ topicName }}</h2>
+  </div>
+
+  <div class="video-container">
+    <iframe *ngIf="url$ | async as url" [src]="url | safeUrl" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <i class="text-content-container">
+    <div class="text-component-body" *ngIf="contentText$ | async as contentText">
+      <p>{{ contentText }}</p>
+    </div>
+  </i>
+</section>

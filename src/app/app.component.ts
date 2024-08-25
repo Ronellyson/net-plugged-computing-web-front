@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-import { ScreenNavigatorComponent } from './components/screen-navigator/screen-navigator.component';
+import { ScreenNavigatorComponent } from './components/widgets/screen-navigator/screen-navigator.component';
 
 @Component({
   selector: 'app-root',

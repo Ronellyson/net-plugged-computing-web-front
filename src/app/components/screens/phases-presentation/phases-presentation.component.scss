@@ -1,0 +1,33 @@
+@import "../../../assets/styles/variables";
+
+.phases-presentation-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: $primary-color;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.phase-title {
+  font-size: $font-size-x-large;
+  font-weight: bold;
+  margin: 0;
+}
+
+.phase-number {
+  background-color: $secondary-color;
+  padding: 16px;
+  border-radius: 15px;
+  font-size: $font-size-large;
+  color: $font-color-secondary;
+}

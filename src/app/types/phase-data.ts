@@ -1,30 +1,19 @@
-export interface Phase {
-  id: number;
-  title: string;
-  phasePresentation: {
-    title: string;
-  };
-  topics: Topic[];
-  questionsPresentation: {
-    title: string;
-  };
-  questions: Question[];
-}
-
-export interface Topic {
-  title: string;
-  contents: Content[];
-}
+// src/app/types/phase-data.ts
 
 export interface Content {
-  type: 'text' | 'image' | 'video';
+  id: number;
+  type: string;
+  title?: string;
   icon?: string;
   text?: string;
   url?: string;
+  question?: string;
+  options?: string[];
+  answer?: string;
 }
 
-export interface Question {
-  question: string;
-  options: string[];
-  answer: string;
+export interface Phase {
+  id: number;
+  title: string;
+  contents: Content[];
 }
