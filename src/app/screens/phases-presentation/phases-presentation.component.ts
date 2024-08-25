@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';  // Adicione isto
+import { CommonModule } from '@angular/common';
 import { NgIf } from '@angular/common';
 import { PhaseStateService } from '../../services/phase-state.service';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { close, goBack, goToNextScreen, extractPhaseIdFromCurrentUrl } from '../../utils/utils';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-phases-presentation',
   standalone: true,
   imports: [
-    CommonModule,  // Certifique-se de incluir CommonModule
+    CommonModule,
     NgIf,
     MatIconModule
   ],
@@ -21,48 +23,40 @@ import { Observable, of } from 'rxjs';
 export class PhasesPresentationComponent implements OnInit {
   phaseTitle$!: Observable<string | undefined>;
   phaseNumber$!: Observable<number>;
+  nextScreenUrl$: Observable<string | null>;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private phaseStateService: PhaseStateService
-  ) {}
+    private phaseStateService: PhaseStateService,
+    private location: Location  // Injeta o Location
+  ) {
+    this.phaseNumber$ = of(extractPhaseIdFromCurrentUrl(this.router));
+
+    this.nextScreenUrl$ = this.phaseNumber$.pipe(
+      switchMap(phaseId => {
+        const currentUrl = `phases-presentation/${phaseId}`;
+        return this.phaseStateService.getNextScreenUrl(currentUrl);
+      })
+    );
+  }
 
   ngOnInit(): void {
-    const phaseId = this.extractPhaseIdFromCurrentUrl();
+    const phaseId = extractPhaseIdFromCurrentUrl(this.router);
 
     this.phaseTitle$ = this.phaseStateService.getPhaseTitle(phaseId);
     this.phaseNumber$ = of(phaseId);
   }
 
   close() {
-    this.router.navigate(['/home']);
+    close(this.router);
+  }
+
+  goBack() {
+    goBack(this.location);
   }
 
   goToNextScreen() {
-    const currentUrl = this.router.url;
-    this.phaseStateService.getNextScreenUrl(currentUrl).pipe(
-      switchMap(nextUrl => {
-        if (nextUrl) {
-          return this.router.navigate([`/${nextUrl}`]);
-        } else {
-          console.warn('No next screen URL available.');
-          return of(false);
-        }
-      })
-    ).subscribe();
-  }
-
-  private extractPhaseIdFromCurrentUrl(): number {
-    const currentUrl = this.router.url;
-    const segments = currentUrl.split('/');
-
-    if (segments.length > 2) {
-      const phaseIdStr = segments[2];
-      const phaseId = parseInt(phaseIdStr, 10);
-      return isNaN(phaseId) ? 0 : phaseId;
-    }
-
-    return 0;
+    goToNextScreen(this.nextScreenUrl$, this.router);
   }
 }
