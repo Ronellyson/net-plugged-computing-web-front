@@ -28,6 +28,11 @@
             "type": "image",
             "url": "https://img.odcdn.com.br/wp-content/uploads/2021/10/arpa.jpeg",
             "text": "Para saber o que é uma rede de computadores, voltemos ao passado... Em 1969, nos Estados Unidos, foi construída a Rede da Agência para Projetos de Pesquisa Avançada, que foi a primeira rede de computadores da história, chamada ARPANET. Ela foi criada para fins militares e permitia a comunicação de computadores a longas distâncias."
+          },
+          {
+            "type": "video",
+            "url": "https://www.youtube.com/embed/l94zFTcfpRQ",
+            "text": "Assista ao vídeo do canal (Hardware Redes Brasil) para melhor compreensão."
           }
         ]
       },

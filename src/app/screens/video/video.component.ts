@@ -6,13 +6,15 @@ import { PhaseStateService } from '../../services/phase-state.service';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import {SafeUrlPipe} from '../../pipes/safe-url-pipe.pipe'
 
 @Component({
   selector: 'app-text-content',
   standalone: true,
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    SafeUrlPipe
   ],
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss']
@@ -20,7 +22,7 @@ import { Location } from '@angular/common';
 export class VideoComponent implements OnInit {
   phaseNumber$: Observable<number>;
   topicName$: Observable<string | undefined>;
-  video$: Observable<string | undefined>;
+  url$: Observable<string | undefined>;
   contentText$: Observable<string | undefined>;
   nextScreenUrl$: Observable<string | null>;
 
@@ -42,17 +44,29 @@ export class VideoComponent implements OnInit {
       )
     );
 
-    this.video$ = combineLatest([
+    this.url$ = combineLatest([
       this.phaseNumber$,
       this.phaseStateService.currentTopicIndex$,
       this.phaseStateService.currentContentIndex$
     ]).pipe(
       switchMap(([phaseId, topicIndex, contentIndex]) =>
         this.phaseStateService.getPhaseById(phaseId).pipe(
-          map(phase => phase?.topics[topicIndex]?.contents[contentIndex]?.url)
+          map(phase => {
+            if (phase && phase.topics[topicIndex]) {
+              const content = phase.topics[topicIndex].contents[contentIndex];
+              if (content && content.url) {
+                return content.url;
+              }
+            }
+            return undefined;
+          })
         )
       )
     );
+
+    this.url$.subscribe(url => {
+      console.log('URL:', url);
+    });
 
     this.contentText$ = combineLatest([
       this.phaseNumber$,
@@ -107,8 +121,6 @@ export class VideoComponent implements OnInit {
     this.nextScreenUrl$.subscribe(nextUrl => {
       if (nextUrl) {
         this.router.navigate([`/${nextUrl}`]);
-      } else {
-        console.warn('No next screen URL available.');
       }
     });
   }

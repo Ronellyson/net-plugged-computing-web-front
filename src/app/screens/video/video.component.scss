@@ -63,11 +63,16 @@
   width: 100%;
 }
 
-.video-container img{
+.video-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100vw;
+}
+
+.video-container  iframe{
+  height: 480px;
+  width: 640px;
 }
 
 @media (min-width: 768px) {

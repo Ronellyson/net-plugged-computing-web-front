@@ -14,7 +14,7 @@
   </div>
 
   <div class="video-container">
-    <iframe *ngIf="video$ | async as video" [src]="video"></iframe>
+    <iframe *ngIf="url$ | async as url" [src]="url | safeUrl" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <i class="text-content-container">
