@@ -30,13 +30,7 @@
               "src/data"
             ],
             "styles": [
-              {
-                "input": "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                "bundleName": "styles",
-                "lazy": false,
-                "cdn": false,
-                "ignore": true
-              },
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
