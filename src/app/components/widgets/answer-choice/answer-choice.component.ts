@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { QuizErrorTrackerService } from '../../../services/quiz-error-tracker.service';
 
 @Component({
   selector: 'app-answer-choice',
@@ -9,15 +10,19 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./answer-choice.component.scss']
 })
 export class AnswerChoiceComponent {
+  @Input() phaseNumber: number | undefined;
   @Input() buttonText: string | undefined;
   @Input() answer: string | undefined;
 
   isClicked: boolean = false;
   isError: boolean = false;
 
+  constructor(private errorTracker: QuizErrorTrackerService){}
+
   toggleActiveState(): void {
     this.isClicked = true;
     if (this.isAnswerIncorrect()) {
+      this.phaseNumber ? this.errorTracker.incrementErrors(this.phaseNumber) : console.log("phaseNumber is undefined");
       this.isError = true;
       setTimeout(() => {
         this.isError = false;

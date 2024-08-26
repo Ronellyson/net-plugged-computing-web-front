@@ -68,6 +68,10 @@ export const phases = [
         "icon": "lan",
         "options": ["1969", "1989", "1999", "2009"],
         "answer": "1969"
+      },
+      {
+        "id":12,
+        "type": "congratulation",
       }
     ]
   }

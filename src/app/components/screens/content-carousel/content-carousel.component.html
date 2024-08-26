@@ -1,13 +1,13 @@
 <button class="home-button" (click)="navigateHome()"><mat-icon>home</mat-icon></button>
 <div id="carouselExampleCaptions" class="carousel slide no-transition" [ngClass]="{'information-screen' : isAInformationScreen(), }">
   <div class="carousel-indicators">
-    <ng-container *ngFor="let content of contens; let i = index">
+    <ng-container *ngFor="let content of contents; let i = index">
       <button type="button" data-bs-target="#carouselExampleCaptions" attr.data-bs-slide-to="{{i}}"
         [ngClass]="{'information-screen-btn' : isAInformationScreen(), 'active': i === 0}" aria-current="true" aria-label="Slide 1"></button>
     </ng-container>
   </div>
   <div class="carousel-inner" id="myCarousel">
-    <ng-container *ngFor="let content of contens; let i = index">
+    <ng-container *ngFor="let content of contents; let i = index">
       <div class="slide-container carousel-item" attr.data-bs-slide="{{i}}" [ngClass]="{'active': i === 0}">
         <ng-container [ngSwitch]="content.type">
           <app-phases-presentation
@@ -51,6 +51,13 @@
             [answer]="content.answer"
           >
           </app-question-content>
+          <app-congratulations
+          *ngSwitchCase="'congratulation'"
+            [phaseNumber]="phaseId"
+            [phaseTitle]="phaseTitle"
+            [totalQuestions] ="totalQuestions"
+          >
+          </app-congratulations>
         </ng-container>
       </div>
     </ng-container>

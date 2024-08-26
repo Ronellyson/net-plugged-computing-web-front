@@ -13,6 +13,7 @@ import { AnswerChoiceComponent } from "../answer-choice/answer-choice.component"
   styleUrl: './answer-choice-list.component.scss'
 })
 export class AnswerChoiceListComponent {
+  @Input() phaseNumber: number | undefined;
   @Input() options: string[] | undefined;
   @Input() answer: string | undefined;
 }
