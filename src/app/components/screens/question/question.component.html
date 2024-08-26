@@ -1,0 +1,21 @@
+<section class="question-phase-container">
+  <div class="phase-nav">
+    <div class="phase-title">
+      <h1 class="phase-number" *ngIf="phaseNumber">Fase {{ phaseNumber }}</h1>
+    </div>
+  </div>
+
+  <div class="header-info">
+    <h2 class="question-text" *ngIf="question ">{{ question }}</h2>
+  </div>
+
+  <div class="icon-container">
+    <mat-icon class="question-component-icon" *ngIf="icon">
+      {{ icon }}
+    </mat-icon>
+  </div>
+
+  <div class="question-content-container">
+    <!-- Display options or additional content if needed -->
+  </div>
+</section>

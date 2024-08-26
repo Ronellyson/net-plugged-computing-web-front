@@ -1,0 +1,64 @@
+<button class="home-button" (click)="navigateHome()"><mat-icon>home</mat-icon></button>
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <ng-container *ngFor="let content of contens; let i = index">
+      <button type="button" data-bs-target="#carouselExampleCaptions" attr.data-bs-slide-to="{{i}}"
+        [ngClass]="{'information-screen-btn' : isAInformationScreen(), 'active': i === 0}" aria-current="true" aria-label="Slide 1"></button>
+    </ng-container>
+  </div>
+  <div class="carousel-inner" id="myCarousel">
+    <ng-container *ngFor="let content of contens; let i = index">
+      <div class="slide-container carousel-item" attr.data-bs-slide="{{i}}" [ngClass]="{'active': i === 0}">
+        <ng-container [ngSwitch]="content.type">
+          <app-phases-presentation
+            *ngSwitchCase="'phasePresentation'"
+            [phaseNumber]="phaseId"
+            [phaseTitle]="phaseTitle">
+          </app-phases-presentation>
+          <app-image-content
+            *ngSwitchCase="'image'"
+            [phaseNumber]="phaseId"
+            [title]="content.title"
+            [image]="content.url"
+            [contentText]="content.text">
+          </app-image-content>
+          <app-text-content
+            *ngSwitchCase="'text'"
+            [phaseNumber]="phaseId"
+            [title]="content.title"
+            [icon]="content.icon"
+            [contentText]="content.text">
+          </app-text-content>
+          <app-video-content
+            *ngSwitchCase="'video'"
+            [phaseNumber]="phaseId"
+            [title]="content.title"
+            [url]="content.url"
+            [contentText]="content.text">
+          </app-video-content>
+          <app-questions-presentation
+            *ngSwitchCase="'questionsPresentation'"
+            [questionsPresentationTitle]="content.title"
+            [phaseNumber]="phaseId"
+          >
+          </app-questions-presentation>
+          <app-question-content
+            *ngSwitchCase="'question'"
+            [phaseNumber]="phaseId"
+            [question]="content.question"
+            [icon]="content.icon"
+            [options]="content.options"
+            [answer]="content.answer"
+          >
+          </app-question-content>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <button [ngClass]="{'information-screen-btn' : isAInformationScreen()}" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" [hidden]="isFirst">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <button [ngClass]="{'information-screen-btn' : isAInformationScreen()}" class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" [hidden]="isLast">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>

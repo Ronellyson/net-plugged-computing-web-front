@@ -1,0 +1,66 @@
+@import "../../../../assets/styles/variables";
+
+.text-phase-container {
+  background: $secondary-color;
+}
+
+.text-content-container {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  color: $primary-color;
+}
+
+.text-component-body {
+  margin-top: 16px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: $font-size-medium;
+}
+
+.phase-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 50px;
+  color: $icon-color-secondary;
+  background-color: transparent;
+}
+
+.phase-title {
+  width: 100%;
+  text-align: center;
+  color:$primary-color;
+}
+
+.header-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color:$primary-color;
+  margin-top: 50px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.mat-icon.text-component-icon {
+  height: 240px;
+  width: 240px;
+  font-size: 240px;
+  color: $icon-color-secondary;
+}

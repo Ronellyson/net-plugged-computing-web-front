@@ -1,0 +1,33 @@
+@import "../../../../assets/styles/variables";
+
+.start-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.logo {
+  width: 320px;
+  height: 320px;
+}
+
+button {
+    width: 20vw;
+    height: 5vh;
+    font-size: $font-size-x-large;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+
+    @media (max-width: 768px) {
+        width: 80vw; /* Altere o tamanho conforme necessário */
+        font-size: $font-size-large; /* Ajuste o tamanho da fonte conforme necessário */
+    }
+}

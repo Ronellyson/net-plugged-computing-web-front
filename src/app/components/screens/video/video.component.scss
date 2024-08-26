@@ -1,0 +1,64 @@
+@import "../../../../assets/styles/variables";
+
+.image-phase-container {
+  background: $secondary-color;
+}
+
+.text-content-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: hidden;
+  color: $primary-color;
+}
+
+.text-component-body {
+  margin-top: 16px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: $font-size-medium;
+}
+
+.video-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container iframe {
+  width: 640px;
+  height: 480px;
+}
+
+.phase-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 50px;
+  color: $icon-color-secondary;
+  background-color: transparent;
+}
+
+.phase-title {
+  width: 100%;
+  text-align: center;
+  color: $primary-color;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column; /* Adiciona uma direção vertical */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: $primary-color;
+  margin-top: 50px;
+}
