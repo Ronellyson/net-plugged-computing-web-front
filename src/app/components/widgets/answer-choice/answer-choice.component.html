@@ -1,0 +1,9 @@
+<button
+  [ngClass]="{
+    'active': isAnswerCorrect(),
+    'error': isError
+  }"
+  (click)="toggleActiveState()"
+>
+  {{ buttonText }}
+</button>

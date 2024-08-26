@@ -2,14 +2,16 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
+import { AnswerChoiceListComponent } from "../../widgets/answer-choice-list/answer-choice-list.component";
 
 @Component({
   selector: 'app-question-content',
   standalone: true,
   imports: [
     CommonModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    AnswerChoiceListComponent
+],
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
