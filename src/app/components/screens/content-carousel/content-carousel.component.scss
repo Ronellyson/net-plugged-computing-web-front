@@ -1,9 +1,26 @@
 @import "../../../../assets/styles/variables";
 
-.carousel-item {
-  height: 100vh;
+.carousel{
   width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  align-items: start;
   background-color: $secondary-color;
+}
+
+.no-transition .carousel-item {
+  transition: none !important;
+}
+
+.slide-container {
+  scale: 70%;
+}
+
+@media (min-width: 768px) {
+  .slide-container {
+    scale: 80%;
+  }
 }
 
 .carousel-indicators button {
@@ -34,6 +51,9 @@ mat-icon {
   width: 64px;
   height: 64px;
   font-size: 64px;
+}
+.information-screen {
+  background-color: $primary-color;
 }
 
 .information-screen-btn, .carousel-indicators {

@@ -19,9 +19,15 @@
 
 .text-component-body{
   margin-top: 16px;
-  width: 30%;
+  width: 100%;
   text-align: center;
-  font-size: $font-size-medium;
+  font-size: $font-size-large;
+}
+
+@media (min-width: 768px) {
+  .text-component-body{
+    width: 80%;
+  }
 }
 
 .phase-nav {

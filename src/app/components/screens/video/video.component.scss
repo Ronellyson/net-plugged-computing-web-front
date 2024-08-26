@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: $font-size-medium;
+  font-size: $font-size-large;
 }
 
 .video-container {
@@ -33,8 +33,15 @@
 }
 
 .video-container iframe {
-  width: 640px;
-  height: 480px;
+  width: 320px;
+  height: 240px;
+}
+
+@media (min-width: 768px) {
+  .video-container iframe {
+    width: 640px;
+    height: 480px;
+  }
 }
 
 .phase-nav {
@@ -55,7 +62,7 @@
 
 .header-info {
   display: flex;
-  flex-direction: column; /* Adiciona uma direção vertical */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
