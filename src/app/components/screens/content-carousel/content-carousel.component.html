@@ -44,11 +44,12 @@
           </app-questions-presentation>
           <app-question-content
             *ngSwitchCase="'question'"
+            [questionId]="content.id"
             [phaseNumber]="phaseId"
             [question]="content.question"
             [icon]="content.icon"
             [options]="content.options"
-            [answer]="content.answer"
+            [answerIndex]="content.answerIndex"
           >
           </app-question-content>
           <app-congratulations

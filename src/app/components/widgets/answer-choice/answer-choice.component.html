@@ -4,6 +4,7 @@
     'error': isError
   }"
   (click)="toggleActiveState()"
+  [disabled]="isDisabled"
 >
   {{ buttonText }}
 </button>

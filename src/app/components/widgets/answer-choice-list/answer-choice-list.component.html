@@ -1,3 +1,12 @@
 <ul>
-  <li *ngFor="let choice of options"><app-answer-choice [phaseNumber]="phaseNumber" [buttonText]="choice" [answer]="answer">{{ choice }}</app-answer-choice></li>
+  <li *ngFor="let choice of options; let i = index">
+    <app-answer-choice
+      [phaseNumber]="phaseNumber"
+      [questionId]="questionId"
+      [buttonText]="choice"
+      [answerChoiceIndex]="i"
+      [answerIndex]="answerIndex">
+      {{ choice }}
+    </app-answer-choice>
+  </li>
 </ul>

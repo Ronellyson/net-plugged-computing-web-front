@@ -4,7 +4,8 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { QuizErrorTrackerService } from '../../../services/quiz-error-tracker.service';
+import { QuestionErrorTrackerService } from '../../../services/question-error-tracker.service';
+import { QuestionAnswerService } from '../../../services/question-answer.service';
 
 @Component({
   selector: 'app-congratulations',
@@ -32,7 +33,8 @@ export class CongratulationsComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private errorTracker: QuizErrorTrackerService
+    private errorTracker: QuestionErrorTrackerService,
+    private questionAnswerService: QuestionAnswerService
   ) {}
 
   ngOnInit() {
@@ -67,6 +69,7 @@ export class CongratulationsComponent implements OnInit, OnDestroy {
 
   restartPhase(): void {
     this.errorTracker.resetErrors(this.phaseNumber);
+    this.questionAnswerService.clearAnswersForPhase(this.phaseNumber)
     window.location.reload();
   }
 }

@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class QuizErrorTrackerService {
-  private storageKeyPrefix = 'quizErrors_';
+export class QuestionErrorTrackerService {
+  private storageKeyPrefix = 'QuestionErrors_';
 
   constructor() { }
 
