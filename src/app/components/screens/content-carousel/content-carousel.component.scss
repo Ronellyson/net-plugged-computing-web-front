@@ -1,11 +1,80 @@
 @import "../../../../assets/styles/variables";
 
-.title {
-  color: red;
-}
-
 .carousel-item {
   height: 100vh;
   width: 100vw;
-  background-color: $primary-color;
+  background-color: $secondary-color;
 }
+
+.carousel-indicators button {
+  background-color: $button-color-primary;
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.carousel-indicators .active {
+  background-color: $button-color-primary;
+  opacity: 1;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+mat-icon {
+  color: $button-color-primary;
+  width: 64px;
+  height: 64px;
+  font-size: 64px;
+}
+
+.information-screen-btn, .carousel-indicators {
+  .information-screen-btn {
+    background-color: $button-color-secondary;
+  }
+  mat-icon {
+    color: $button-color-secondary
+  }
+}
+
+.home-button {
+  background-color: $button-color-primary;
+  border: none;
+  border-radius: 16px;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-button:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.home-button mat-icon {
+  color: $button-color-secondary;
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  transition: color 0.2s ease;
+}
+
+.home-button:active mat-icon {
+  color: lighten($button-color-secondary, 20%);
+}
+

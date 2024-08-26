@@ -1,4 +1,4 @@
-@import "../../../assets/styles/variables";
+@import "../../../../assets/styles/variables";
 
 .text-phase-container {
   background: $secondary-color;
@@ -16,9 +16,14 @@
   color: $primary-color;
 }
 
-.text-component-body{
-  width: 80%;
+.text-component-body {
+  margin-top: 16px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  font-size: $font-size-medium;
 }
 
 .phase-nav {

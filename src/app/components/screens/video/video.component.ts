@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
-import { SafeUrlPipe } from '../../pipes/safe-url-pipe.pipe';
+import { SafeUrlPipe } from '../../../pipes/safe-url-pipe.pipe';
 
 @Component({
   selector: 'app-video-content',
@@ -16,8 +16,8 @@ import { SafeUrlPipe } from '../../pipes/safe-url-pipe.pipe';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent {
-  @Input() phaseNumber$!: Observable<number>;
-  @Input() topicName$!: Observable<string | undefined>;
-  @Input() url$!: Observable<string | undefined>;
-  @Input() contentText$!: Observable<string | undefined>;
+  @Input() phaseNumber: number | undefined;
+  @Input() title: string | undefined;
+  @Input() url: string | undefined;
+  @Input() contentText: string | undefined;
 }

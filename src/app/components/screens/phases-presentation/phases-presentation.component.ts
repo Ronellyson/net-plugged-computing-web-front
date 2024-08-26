@@ -1,7 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-phases-presentation',
@@ -15,6 +14,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./phases-presentation.component.scss']
 })
 export class PhasesPresentationComponent {
-  @Input() phaseTitle$!: Observable<string | undefined>;
-  @Input() phaseNumber$!: Observable<number>;
+  @Input() phaseTitle: string | undefined;
+  @Input() phaseNumber: number | undefined;
 }

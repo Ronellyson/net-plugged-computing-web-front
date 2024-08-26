@@ -5,8 +5,7 @@ export const phases = [
     "contents": [
       {
         "id": 1,
-        "type": "topic",
-        "title": "Por que os computadores precisam se comunicar?"
+        "type": "phasePresentation"
       },
       {
         "id": 2,
@@ -40,22 +39,17 @@ export const phases = [
       },
       {
         "id": 7,
-        "type": "topic",
-        "title": "O que é uma rede de computadores?"
-      },
-      {
-        "id": 8,
         "type": "text",
         "icon": "lan",
         "text": "Atualmente, as redes de computadores já não são mais tecnologias exclusivas para fins militares, sendo usadas ao redor do mundo, para conectar dispositivos dos mais variados, indo desde computadores até lâmpadas e relógios."
       },
       {
-        "id": 9,
+        "id": 8,
         "type": "questionsPresentation",
         "title": "Vamos praticar?"
       },
       {
-        "id": 10,
+        "id": 9,
         "type": "question",
         "question": "Qual a principal função das redes de computadores?",
         "icon": "lan",

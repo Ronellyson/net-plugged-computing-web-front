@@ -14,7 +14,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent {
-  @Input() phaseNumber$!: Observable<number>;
-  @Input() question$!: Observable<string | undefined>;
-  @Input() icon$!: Observable<string | undefined>;
+  @Input() phaseNumber: number | undefined;
+  @Input() question: string | undefined;
+  @Input() icon: string | undefined;
+  @Input() options: string[] | undefined;
+  @Input() answer: string | undefined;
 }

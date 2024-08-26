@@ -49,10 +49,12 @@
   background-color: $button-color-primary;
   border: none;
   border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-button:active {
+.enter-button:active {
   transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 mat-icon {
@@ -62,4 +64,9 @@ mat-icon {
 
 .enter-button mat-icon {
   color: $icon-color-primary;
+  transition: color 0.2s ease;
+}
+
+.enter-button:active mat-icon {
+  color: lighten($icon-color-primary, 20%);
 }

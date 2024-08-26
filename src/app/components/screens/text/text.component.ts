@@ -14,8 +14,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./text.component.scss']
 })
 export class TextComponent {
-  @Input() phaseNumber$!: Observable<number>;
-  @Input() topicName$!: Observable<string | undefined>;
-  @Input() icon$!: Observable<string | undefined>;
-  @Input() contentText$!: Observable<string | undefined>;
+  @Input() phaseNumber: number | undefined;
+  @Input() title: string | undefined;
+  @Input() icon: string | undefined;
+  @Input() contentText: string | undefined;
 }
