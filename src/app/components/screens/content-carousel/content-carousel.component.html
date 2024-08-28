@@ -1,4 +1,4 @@
-<button class="home-button" (click)="navigateHome()"><mat-icon>home</mat-icon></button>
+<button class="home-button" (click)="navigateHome()" [hidden]="isCongratulation"><mat-icon>home</mat-icon></button>
 <div id="carouselExampleCaptions" class="carousel slide no-transition" [ngClass]="{'information-screen' : isAInformationScreen(), }">
   <div class="carousel-indicators">
     <ng-container *ngFor="let content of contents; let i = index">

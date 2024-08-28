@@ -47,6 +47,7 @@ export class ContentCarouselComponent implements OnInit {
 
   isFirst = true;
   isLast = false;
+  isCongratulation = false;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -62,6 +63,9 @@ export class ContentCarouselComponent implements OnInit {
       this.contents = phases.filter(
         (phase) => (phase.id = Number(id))
       )[0].contents;
+      this.totalQuestions = this.contents.filter(
+        (content) => content.type === 'question'
+      ).length;
     });
 
     const myCarousel = document.getElementById('carouselExampleCaptions');
@@ -70,11 +74,10 @@ export class ContentCarouselComponent implements OnInit {
       this.currentIndex = event['to'];
       this.isFirst = this.currentIndex === 0;
       this.isLast = this.currentIndex === this.contents.length - 1;
+      this.updateCongratulationStatus();
     });
 
-    this.totalQuestions = this.contents.filter(
-      (content) => content.type === 'question'
-    ).length;
+    this.updateCongratulationStatus();
   }
 
   navigateHome(): void {
@@ -87,5 +90,9 @@ export class ContentCarouselComponent implements OnInit {
 
   isAInformationScreen() {
     return !!this.informationScreens?.includes(this.getCurrentItem()?.type);
+  }
+
+  private updateCongratulationStatus() {
+    this.isCongratulation = this.getCurrentItem()?.type === 'congratulation';
   }
 }
