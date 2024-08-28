@@ -3,7 +3,7 @@
   <div class="carousel-indicators">
     <ng-container *ngFor="let content of contents; let i = index">
       <button type="button" data-bs-target="#carouselExampleCaptions" attr.data-bs-slide-to="{{i}}"
-        [ngClass]="{'information-screen-btn' : isAInformationScreen(), 'active': i === 0}" aria-current="true" aria-label="Slide 1"></button>
+        [ngClass]="{'information-screen-btn' : isAInformationScreen(), 'active': i === 0}" aria-current="true" aria-label="Slide 1" [disabled]="true"></button>
     </ng-container>
   </div>
   <div class="carousel-inner" id="myCarousel">
@@ -66,7 +66,7 @@
   <button [ngClass]="{'information-screen-btn' : isAInformationScreen()}" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" [hidden]="isFirst">
     <mat-icon>chevron_left</mat-icon>
   </button>
-  <button [ngClass]="{'information-screen-btn' : isAInformationScreen()}" class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" [hidden]="isLast">
+  <button [ngClass]="{'information-screen-btn' : isAInformationScreen()}" class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" [hidden]="isLast || !isNextEnabled">
     <mat-icon>chevron_right</mat-icon>
   </button>
 </div>
