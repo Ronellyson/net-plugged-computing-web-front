@@ -1,0 +1,9 @@
+@import "../../../../assets/styles/variables";
+
+button {
+  width: 320px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: $button-color-primary;
+  color: $font-color-primary;
+}

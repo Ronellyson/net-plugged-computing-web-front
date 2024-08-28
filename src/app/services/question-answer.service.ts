@@ -36,33 +36,6 @@ export class QuestionAnswerService {
     sessionStorage.setItem('completedPhases', JSON.stringify(Array.from(this.completedPhases)));
   }
 
-  saveCorrectAnswer(phaseNumber: number, questionId: number, selectedAnswerId: number): void {
-    if (!this.correctAnswersMap[phaseNumber]) {
-      this.correctAnswersMap[phaseNumber] = {};
-    }
-    this.correctAnswersMap[phaseNumber][questionId] = selectedAnswerId;
-    this.saveAnswers();
-    this.updateCompletedPhases();
-  }
-
-  getCorrectAnswer(phaseNumber: number, questionId: number): number | undefined {
-    return this.correctAnswersMap[phaseNumber]?.[questionId];
-  }
-
-  getCorrectAnswersForPhase(phaseNumber: number): { [questionId: number]: number } | undefined {
-    return this.correctAnswersMap[phaseNumber];
-  }
-
-  clearAnswersForPhase(phaseNumber: number): void {
-    delete this.correctAnswersMap[phaseNumber];
-    this.saveAnswers();
-  }
-
-  clearAllAnswers(): void {
-    this.correctAnswersMap = {};
-    this.saveAnswers();
-  }
-
   private updateCompletedPhases(): void {
     phases.forEach(phase => {
       const questions = phase.contents.filter(content => content.type === 'question');
@@ -83,5 +56,22 @@ export class QuestionAnswerService {
 
   isPhaseCompleted(phaseId: number): boolean {
     return this.completedPhases.has(phaseId);
+  }
+
+  saveCorrectAnswer(phaseNumber: number, questionId: number, selectedAnswerId: number): void {
+    if (!this.correctAnswersMap[phaseNumber]) {
+      this.correctAnswersMap[phaseNumber] = {};
+    }
+    this.correctAnswersMap[phaseNumber][questionId] = selectedAnswerId;
+    this.saveAnswers();
+    this.updateCompletedPhases();
+  }
+
+  getCorrectAnswer(phaseNumber: number, questionId: number): number | undefined {
+    return this.correctAnswersMap[phaseNumber]?.[questionId];
+  }
+
+  getCorrectAnswersForPhase(phaseNumber: number): { [questionId: number]: number } | undefined {
+    return this.correctAnswersMap[phaseNumber];
   }
 }

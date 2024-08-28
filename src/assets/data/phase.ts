@@ -85,16 +85,58 @@ export const phases = [
   {
     id: 2,
     title: 'Internet',
-    contents: [],
+    contents: [
+      {
+        id: 1,
+        type: 'question',
+        question: '',
+        icon: '',
+        options: [
+          '',
+          '',
+          '',
+          '',
+        ],
+        answerIndex: 0,
+      },
+    ],
   },
   {
     id: 3,
     title: 'Segurança',
-    contents: [],
+    contents: [
+      {
+        id: 1,
+        type: 'question',
+        question: '',
+        icon: '',
+        options: [
+          '',
+          '',
+          '',
+          '',
+        ],
+        answerIndex: 0,
+      },
+    ],
   },
   {
     id: 4,
     title: 'De que se trata tudo isso?',
-    contents: [],
+    contents: [
+      {
+        id: 1,
+        type: 'question',
+        question: '',
+        icon: '',
+        options: [
+          '',
+          '',
+          '',
+          '',
+        ],
+        answerIndex: 0,
+      },
+    ],
   },
 ];

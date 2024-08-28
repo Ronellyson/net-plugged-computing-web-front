@@ -23,7 +23,16 @@ export class QuestionErrorTrackerService {
     return count ? parseInt(count, 10) : 0;
   }
 
-  resetErrors(phaseId: number): void {
+  async resetErrors(phaseId: number): Promise<void> {
     localStorage.removeItem(this.getStorageKey(phaseId));
+  }
+
+  async resetAllErrors(): Promise<void> {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(this.storageKeyPrefix)) {
+        localStorage.removeItem(key);
+      }
+    }
   }
 }

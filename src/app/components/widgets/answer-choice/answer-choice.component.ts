@@ -42,7 +42,7 @@ export class AnswerChoiceComponent implements OnInit, OnDestroy {
   private startCheckingAnswer(): void {
     this.checkInterval = setInterval(() => {
       this.checkAnswerState();
-    }, 1000); // Check every second
+    }, 1000);
   }
 
   private checkAnswerState(): void {
@@ -50,9 +50,9 @@ export class AnswerChoiceComponent implements OnInit, OnDestroy {
       const savedAnswerIndex = this.questionAnswerService.getCorrectAnswer(this.phaseNumber, this.questionId);
 
       if (savedAnswerIndex !== undefined) {
-        this.isDisabled = true; // Disable all choices once an answer is selected
+        this.isDisabled = true;
         if (this.answerChoiceIndex === savedAnswerIndex) {
-          this.isClicked = true; // Mark the correct answer as clicked
+          this.isClicked = true;
         }
       }
     }
