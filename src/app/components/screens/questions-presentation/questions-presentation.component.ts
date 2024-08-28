@@ -16,4 +16,5 @@ import { MatIconModule } from '@angular/material/icon';
 export class QuestionsPresentationComponent {
   @Input() questionsPresentationTitle: string | undefined;
   @Input() phaseNumber: number | undefined;
+  @Input() phaseTitle: string | undefined;
 }

@@ -112,7 +112,7 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
       this.isNextEnabled = false;
       const questionId = this.getCurrentItem()?.id;
       if (questionId !== undefined) {
-        this.verificationSubscription = interval(1000).subscribe(() => {
+        this.verificationSubscription = interval(0).subscribe(() => {
           const correctAnswer = this.questionAnswerService.getCorrectAnswer(this.phaseId, questionId);
           this.isNextEnabled = correctAnswer !== undefined;
         });
