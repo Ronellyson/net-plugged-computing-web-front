@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuestionErrorTrackerService } from '../../../services/question-error-tracker.service';
 import { QuestionAnswerService } from '../../../services/question-answer.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-answer-choice',
@@ -24,7 +25,8 @@ export class AnswerChoiceComponent implements OnInit, OnDestroy {
 
   constructor(
     private errorTracker: QuestionErrorTrackerService,
-    private questionAnswerService: QuestionAnswerService
+    private questionAnswerService: QuestionAnswerService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +62,7 @@ export class AnswerChoiceComponent implements OnInit, OnDestroy {
     if (!this.isDisabled) {
       this.isClicked = true;
       if (this.isAnswerCorrect()) {
+        this.toastr.success('Resposta Correta!');
         if (this.phaseNumber && this.questionId && this.answerChoiceIndex !== undefined) {
           this.questionAnswerService.saveCorrectAnswer(this.phaseNumber, this.questionId, this.answerChoiceIndex);
         } else {
@@ -68,6 +71,7 @@ export class AnswerChoiceComponent implements OnInit, OnDestroy {
       }
 
       if (this.isAnswerIncorrect()) {
+        this.toastr.error('Resposta Incorreta!');
         if (this.phaseNumber) {
           this.errorTracker.incrementErrors(this.phaseNumber);
         } else {
