@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { TextComponent } from '../text/text.component';
 import { VideoComponent } from '../video/video.component';
-import { PhasesPresentationComponent } from '../phases-presentation/phases-presentation.component';
 import { QuestionsPresentationComponent } from '../questions-presentation/questions-presentation.component';
 import { QuestionComponent } from '../question/question.component';
 import { CongratulationsComponent } from '../congratulations/congratulations.component';
@@ -24,7 +23,6 @@ import { interval, Subscription } from 'rxjs';
     MatIconModule,
     TextComponent,
     VideoComponent,
-    PhasesPresentationComponent,
     QuestionsPresentationComponent,
     QuestionComponent,
     CongratulationsComponent,
