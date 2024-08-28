@@ -21,10 +21,11 @@
 button {
     width: 20vw;
     height: 5vh;
-    font-size: $font-size-x-large;
+    font-size: $font-size-large;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-style: normal;
+    border-radius: 12px;
 
     @media (max-width: 768px) {
         width: 80vw; /* Altere o tamanho conforme necessário */
