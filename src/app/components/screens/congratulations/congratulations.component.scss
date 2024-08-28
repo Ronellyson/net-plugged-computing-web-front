@@ -1,0 +1,96 @@
+@import "../../../../assets/styles/variables";
+
+.congratulations-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $primary-color;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.phase-title {
+  font-size: $font-size-x-large;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.phase-number {
+  background-color: $secondary-color;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: $font-size-large;
+  color: $font-color-secondary;
+  margin-bottom: 16px;
+}
+
+.congratulations-message {
+  width: 80%;
+  font-size: $font-size-large;
+  margin: 16px 0;
+}
+
+.stars-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.screen-navigator {
+  display: flex;
+  justify-content: center;
+  gap: 20%;
+  align-items: center;
+  background-color: $primary-color;
+  position: fixed;
+  bottom: 48px;
+  width: 100%;
+
+  .button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  button {
+    width: 84px;
+    height: 84px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: $button-color-secondary;
+    position: relative;
+    mat-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      color: $button-color-primary;
+    }
+  }
+
+  .button-label {
+    font-size: $font-size-large;
+    color: $font-color-primary;
+    margin-top: 4px;
+    text-align: center;
+  }
+}

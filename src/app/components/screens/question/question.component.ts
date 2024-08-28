@@ -16,9 +16,10 @@ import { AnswerChoiceListComponent } from "../../widgets/answer-choice-list/answ
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent {
+  @Input() questionId: number | undefined;
   @Input() phaseNumber: number | undefined;
   @Input() question: string | undefined;
   @Input() icon: string | undefined;
   @Input() options: string[] | undefined;
-  @Input() answer: string | undefined;
+  @Input() answerIndex: number | undefined;
 }

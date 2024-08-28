@@ -9,7 +9,7 @@ export interface Content {
   url?: string;
   question?: string;
   options?: string[];
-  answer?: string;
+  answerIndex?: number;
 }
 
 export interface Phase {

@@ -59,7 +59,7 @@ export const phases = [
           "Guardar dados",
           "Executar aplicações"
         ],
-        "answer": "Compartilhar arquivos"
+        "answerIndex": 0
       },
       {
         "id": 11,
@@ -67,7 +67,11 @@ export const phases = [
         "question": "Quando foi criada a ARPANET?",
         "icon": "lan",
         "options": ["1969", "1989", "1999", "2009"],
-        "answer": "1969"
+        "answerIndex": 0
+      },
+      {
+        "id":12,
+        "type": "congratulation",
       }
     ]
   }
