@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-phase-card',
   standalone: true,
   imports: [
+    CommonModule, // Inclua o CommonModule aqui
     MatIconModule,
     MatButtonModule,
   ],
@@ -16,12 +18,15 @@ import { Router } from '@angular/router';
 export class PhaseCardComponent {
   @Input() phaseId!: number;
   @Input() phaseTitle!: string;
+  @Input() isLocked: boolean = true;
 
   constructor(
     private router: Router
   ) {}
 
   selectPhase(): void {
-    this.router.navigate([`/phases/${this.phaseId}`]);
+    if (!this.isLocked) {
+      this.router.navigate([`/phases/${this.phaseId}`]);
+    }
   }
 }
