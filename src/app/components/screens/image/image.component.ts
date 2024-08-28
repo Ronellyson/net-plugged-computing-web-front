@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ImageComponent {
   @Input() phaseNumber: number | undefined;
-  @Input() title: string | undefined;
+  @Input() phaseTitle: string | undefined;
   @Input() image: string | undefined;
   @Input() contentText: string | undefined;
 }

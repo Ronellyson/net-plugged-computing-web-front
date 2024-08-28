@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class TextComponent {
   @Input() phaseNumber: number | undefined;
-  @Input() title: string | undefined;
+  @Input() phaseTitle: string | undefined;
   @Input() icon: string | undefined;
   @Input() contentText: string | undefined;
 }

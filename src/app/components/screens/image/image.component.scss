@@ -26,7 +26,7 @@
 
 @media (min-width: 768px) {
   .text-component-body{
-    width: 80%;
+    width: 60%;
   }
 }
 
@@ -36,6 +36,7 @@
   align-items: center;
   padding: 0px 20px;
   height: 50px;
+  margin-bottom: 10vh;
   color: $icon-color-secondary;
   background-color: transparent;
 }
@@ -44,15 +45,6 @@
   width: 100%;
   text-align: center;
   color:$primary-color;
-}
-
-.header-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color:$primary-color;
-  margin-top: 50px;
 }
 
 .image-container {

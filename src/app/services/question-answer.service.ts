@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class QuestionAnswerService {
-  private storageKey = 'quizAnswers';
+  private storageKey = 'questionAnswers';
 
   constructor() {
     this.loadAnswers();

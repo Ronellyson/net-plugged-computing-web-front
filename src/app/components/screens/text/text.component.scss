@@ -2,6 +2,7 @@
 
 .text-phase-container {
   background: $secondary-color;
+  height: 100vh;
 }
 
 .text-content-container {
@@ -30,8 +31,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0px 20px;
   height: 50px;
+  margin-bottom: 10vh;
   color: $icon-color-secondary;
   background-color: transparent;
 }
