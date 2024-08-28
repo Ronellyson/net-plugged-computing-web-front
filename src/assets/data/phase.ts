@@ -29,9 +29,9 @@ export const phases = [
       },
       {
         id: 5,
-        type: 'video',
-        videoId: 'l94zFTcfpRQ',
-        text: 'Assista ao vídeo do canal (Hardware Redes Brasil) para melhor compreensão.',
+        type: 'image',
+        url: 'https://img.odcdn.com.br/wp-content/uploads/2021/10/arpa.jpeg',
+        text: 'A ARPANET foi a primeira rede de computadores da história. Ela foi criada para fins militares e permitia a comunicação de computadores a longas distâncias. ',
       },
       {
         id: 6,
