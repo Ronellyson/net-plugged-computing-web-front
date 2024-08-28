@@ -34,7 +34,6 @@ import { interval, Subscription } from 'rxjs';
 })
 export class ContentCarouselComponent implements OnInit, OnDestroy {
   currentIndex: number = 0;
-
   contents: Content[] = [];
   phaseId: any;
   phaseTitle: any;
@@ -42,6 +41,7 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
   isFirst = true;
   isLast = false;
   isNextEnabled = false;
+  isCongratulation = false;
   verificationSubscription: Subscription | null = null;
 
   informationScreens = [
@@ -49,10 +49,6 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
     'questionsPresentation',
     'congratulation',
   ];
-
-  isFirst = true;
-  isLast = false;
-  isCongratulation = false;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -63,15 +59,16 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ id }) => {
       this.phaseId = id;
-      this.phaseTitle = phases.filter(
+      this.phaseTitle = phases.find(
         (phase) => phase.id === Number(id)
-      )[0].title;
-      this.contents = phases.filter(
+      )?.title || '';
+      this.contents = phases.find(
         (phase) => phase.id === Number(id)
-      )[0].contents;
+      )?.contents || [];
       this.totalQuestions = this.contents.filter(
         (content) => content.type === 'question'
       ).length;
+      this.checkIfNextShouldBeEnabled();
     });
 
     const myCarousel = document.getElementById('carouselExampleCaptions');
@@ -81,9 +78,15 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
       this.isFirst = this.currentIndex === 0;
       this.isLast = this.currentIndex === this.contents.length - 1;
       this.updateCongratulationStatus();
+      this.checkIfNextShouldBeEnabled();
     });
 
     this.updateCongratulationStatus();
+    this.checkIfNextShouldBeEnabled();
+  }
+
+  ngOnDestroy(): void {
+    this.verificationSubscription?.unsubscribe();
   }
 
   navigateHome(): void {
@@ -100,5 +103,24 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
 
   private updateCongratulationStatus() {
     this.isCongratulation = this.getCurrentItem()?.type === 'congratulation';
+  }
+
+  private checkIfNextShouldBeEnabled() {
+    this.verificationSubscription?.unsubscribe();
+
+    if (this.isCongratulation) {
+      this.isNextEnabled = false;
+    } else if (this.getCurrentItem()?.type === 'question' && this.phaseId) {
+      this.isNextEnabled = false;
+      const questionId = this.getCurrentItem()?.id;
+      if (questionId !== undefined) {
+        this.verificationSubscription = interval(1000).subscribe(() => {
+          const correctAnswer = this.questionAnswerService.getCorrectAnswer(this.phaseId, questionId);
+          this.isNextEnabled = correctAnswer !== undefined;
+        });
+      }
+    } else {
+      this.isNextEnabled = true;
+    }
   }
 }
