@@ -18,6 +18,7 @@ import { AnswerChoiceListComponent } from "../../widgets/answer-choice-list/answ
 export class QuestionComponent {
   @Input() questionId: number | undefined;
   @Input() phaseNumber: number | undefined;
+  @Input() phaseTitle: string | undefined;
   @Input() question: string | undefined;
   @Input() icon: string | undefined;
   @Input() options: string[] | undefined;

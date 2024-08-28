@@ -17,7 +17,7 @@ import { SafeUrlPipe } from '../../../pipes/safe-url-pipe.pipe';
 })
 export class VideoComponent {
   @Input() phaseNumber: number | undefined;
-  @Input() title: string | undefined;
+  @Input() phaseTitle: string | undefined;
   @Input() url: string | undefined;
   @Input() contentText: string | undefined;
 }
