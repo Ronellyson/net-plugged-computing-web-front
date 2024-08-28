@@ -32,7 +32,6 @@ export class QuestionAnswerService {
   }
 
   getCorrectAnswer(phaseNumber: number, questionId: number): number | undefined {
-    console.log(this.correctAnswersMap[phaseNumber]?.[questionId])
     return this.correctAnswersMap[phaseNumber]?.[questionId];
   }
 

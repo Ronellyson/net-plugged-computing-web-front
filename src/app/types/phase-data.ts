@@ -7,6 +7,7 @@ export interface Content {
   icon?: string;
   text?: string;
   url?: string;
+  videoId?: string;
   question?: string;
   options?: string[];
   answerIndex?: number;
