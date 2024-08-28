@@ -55,15 +55,3 @@
   justify-content: center;
   align-items: center;
 }
-
-.video-container iframe {
-  width: 320px;
-  height: 240px;
-}
-
-@media (min-width: 768px) {
-  .video-container iframe {
-    width: 640px;
-    height: 480px;
-  }
-}
