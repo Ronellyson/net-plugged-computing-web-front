@@ -1,14 +1,16 @@
 <div class="congratulations-container">
+  <div class="phase-nav">
+    <div class="phase-title">
+      <h1 class="phase-number" *ngIf="phaseNumber">Fase {{ phaseNumber }}</h1>
+      <h2 class="phase-title" *ngIf="phaseTitle">{{ phaseTitle }}</h2>
+    </div>
+  </div>
   <div class="content">
-    <h1 class="phase-title">{{ phaseTitle }}</h1>
-    <p class="phase-number">Fase {{ phaseNumber }}</p>
-    <h1
-      class="congratulations-message"
-      [innerHTML]="congratulations_message"
-    ></h1>
-
     <div class="stars-container">
-      <mat-icon *ngFor="let star of starsArray">star</mat-icon>
+      <!-- Estrelas preenchidas -->
+      <mat-icon *ngFor="let star of starsArray" class="star">star</mat-icon>
+      <!-- Estrelas não preenchidas -->
+      <mat-icon *ngFor="let _ of [].constructor(5 - starsArray.length)" class="star-inactive">star</mat-icon>
     </div>
   </div>
 
