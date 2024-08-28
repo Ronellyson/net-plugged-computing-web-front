@@ -37,4 +37,8 @@ html, body { height: 100%; }
 
 @import 'assets/styles/variables';
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+// regular style toast
+@import 'ngx-toastr/toastr';
+
 body { margin: 0; font-family: $font-primary; color: $font-color-primary;}
