@@ -13,8 +13,15 @@
   margin: 1%;
 }
 
-app-phase-card-list {
-  overflow-y: scroll;
+ul {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  width: 20vw;
 }
 
 .screen-navigator {
