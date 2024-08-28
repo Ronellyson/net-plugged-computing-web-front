@@ -16,6 +16,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   background: transparent;
   overflow: hidden;
   color: $primary-color;
@@ -58,8 +59,14 @@
 }
 
 .mat-icon.question-component-icon {
-  height: 240px;
-  width: 240px;
-  font-size: 240px;
+  height: 140px;
+  width: 140px;
+  font-size: 140px;
   color: $icon-color-secondary;
+
+  @media (min-width: 768px) {
+    height: 240px;
+    width: 240px;
+    font-size: 240px;
+  }
 }
