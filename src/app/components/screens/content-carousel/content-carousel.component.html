@@ -10,11 +10,6 @@
     <ng-container *ngFor="let content of contents; let i = index">
       <div class="slide-container carousel-item" attr.data-bs-slide="{{i}}" [ngClass]="{'active': i === 0}">
         <ng-container [ngSwitch]="content.type">
-          <app-phases-presentation
-            *ngSwitchCase="'phasePresentation'"
-            [phaseNumber]="phaseId"
-            [phaseTitle]="phaseTitle">
-          </app-phases-presentation>
           <app-image-content
             *ngSwitchCase="'image'"
             [phaseNumber]="phaseId"
