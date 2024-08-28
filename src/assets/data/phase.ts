@@ -68,7 +68,12 @@ export const phases = [
         type: 'question',
         question: 'O que é a ARPANET',
         icon: 'lan',
-        options: ['Uma rede criada para compartilhar músicas', 'Uma rede criada para projetos de pesquisa', 'Uma empresa brasileira', 'Um padrão de transmissão de dados'],
+        options: [
+          'Uma rede criada para compartilhar músicas',
+          'Uma rede criada para projetos de pesquisa',
+          'Uma empresa brasileira',
+          'Um padrão de transmissão de dados',
+        ],
         answerIndex: 0,
       },
       {
@@ -80,31 +85,16 @@ export const phases = [
   {
     id: 2,
     title: 'Internet',
-    contents: [
-      {
-        id: 1,
-        type: 'phasePresentation',
-      },
-    ],
+    contents: [],
   },
   {
     id: 3,
     title: 'Segurança',
-    contents: [
-      {
-        id: 1,
-        type: 'phasePresentation',
-      },
-    ],
+    contents: [],
   },
   {
     id: 4,
     title: 'De que se trata tudo isso?',
-    contents: [
-      {
-        id: 1,
-        type: 'phasePresentation',
-      },
-    ],
+    contents: [],
   },
 ];
