@@ -1,4 +1,4 @@
-<section class="image-phase-container">
+<section class="video-phase-container">
   <div class="phase-nav">
     <div class="phase-title">
       <h1 class="phase-number" *ngIf="phaseNumber">Fase {{ phaseNumber }}</h1>
@@ -7,7 +7,12 @@
   </div>
 
   <div class="video-container">
-    <iframe *ngIf="url" [src]="url | safeUrl" frameborder="0" allowfullscreen></iframe>
+    <youtube-player
+      [videoId]="videoId"
+      [width]="videoWidth"
+      [height]="videoHeight"
+      disablePlaceholder>
+    </youtube-player>
   </div>
 
   <i class="text-content-container">

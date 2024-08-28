@@ -30,7 +30,7 @@ export const phases = [
       {
         id: 5,
         type: 'video',
-        url: 'https://www.youtube.com/embed/l94zFTcfpRQ',
+        videoId: 'l94zFTcfpRQ',
         text: 'Assista ao vídeo do canal (Hardware Redes Brasil) para melhor compreensão.',
       },
       {

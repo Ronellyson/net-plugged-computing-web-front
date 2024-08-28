@@ -1,14 +1,18 @@
 @import "../../../../assets/styles/variables";
 
-.image-phase-container {
+.video-phase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: $secondary-color;
   height: 100vh;
 }
 
 .text-content-container {
+  height: auto;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: transparent;
@@ -17,31 +21,13 @@
 }
 
 .text-component-body {
+  width: 80%;
   margin-top: 16px;
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
   font-size: $font-size-large;
-}
+  text-align: center;
 
-.video-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-container iframe {
-  width: 320px;
-  height: 240px;
-}
-
-@media (min-width: 768px) {
-  .video-container iframe {
-    width: 640px;
-    height: 480px;
+  @media (min-width: 768px) {
+    width: 50%;
   }
 }
 
@@ -49,10 +35,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 16px;
   padding: 0 20px;
   height: 50px;
   margin-bottom: 10vh;
-  color: $icon-color-secondary;
   background-color: transparent;
 }
 
@@ -62,12 +49,9 @@
   color: $primary-color;
 }
 
-.header-info {
+.video-container {
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: $primary-color;
-  margin-top: 50px;
 }

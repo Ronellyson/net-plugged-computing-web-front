@@ -8,12 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { TextComponent } from '../text/text.component';
 import { VideoComponent } from '../video/video.component';
-import { PhasesPresentationComponent } from '../phases-presentation/phases-presentation.component';
 import { QuestionsPresentationComponent } from '../questions-presentation/questions-presentation.component';
 import { QuestionComponent } from '../question/question.component';
 import { CongratulationsComponent } from '../congratulations/congratulations.component';
 import { QuestionAnswerService } from '../../../services/question-answer.service';
 import { interval, Subscription } from 'rxjs';
+import { YoutubePlayerService } from '../../../services/youtube-player.service';
 
 @Component({
   selector: 'app-content-carousel',
@@ -24,7 +24,6 @@ import { interval, Subscription } from 'rxjs';
     MatIconModule,
     TextComponent,
     VideoComponent,
-    PhasesPresentationComponent,
     QuestionsPresentationComponent,
     QuestionComponent,
     CongratulationsComponent,
@@ -53,7 +52,8 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private router: Router,
-    private questionAnswerService: QuestionAnswerService
+    private questionAnswerService: QuestionAnswerService,
+    private youtubePlayerService: YoutubePlayerService
   ) {}
 
   ngOnInit(): void {
@@ -79,6 +79,7 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
       this.isLast = this.currentIndex === this.contents.length - 1;
       this.updateCongratulationStatus();
       this.checkIfNextShouldBeEnabled();
+      this.handleVideoPauseOnSlide();
     });
 
     this.updateCongratulationStatus();
@@ -101,6 +102,13 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
     return !!this.informationScreens?.includes(this.getCurrentItem()?.type);
   }
 
+  private handleVideoPauseOnSlide(): void {
+    const currentItem = this.getCurrentItem();
+    if (currentItem?.type !== 'video') {
+      this.youtubePlayerService.pauseVideo();
+    }
+  }
+
   private updateCongratulationStatus() {
     this.isCongratulation = this.getCurrentItem()?.type === 'congratulation';
   }
@@ -114,7 +122,7 @@ export class ContentCarouselComponent implements OnInit, OnDestroy {
       this.isNextEnabled = false;
       const questionId = this.getCurrentItem()?.id;
       if (questionId !== undefined) {
-        this.verificationSubscription = interval(1000).subscribe(() => {
+        this.verificationSubscription = interval(0).subscribe(() => {
           const correctAnswer = this.questionAnswerService.getCorrectAnswer(this.phaseId, questionId);
           this.isNextEnabled = correctAnswer !== undefined;
         });

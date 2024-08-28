@@ -28,13 +28,14 @@
             *ngSwitchCase="'video'"
             [phaseNumber]="phaseId"
             [phaseTitle]="phaseTitle"
-            [url]="content.url"
+            [videoId]="content.videoId"
             [contentText]="content.text">
           </app-video-content>
           <app-questions-presentation
             *ngSwitchCase="'questionsPresentation'"
             [questionsPresentationTitle]="content.title"
             [phaseNumber]="phaseId"
+            [phaseTitle]="phaseTitle"
           >
           </app-questions-presentation>
           <app-question-content
