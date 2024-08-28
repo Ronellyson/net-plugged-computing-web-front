@@ -20,25 +20,21 @@
   text-align: center;
 }
 
+.phase-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  height: 50px;
+  margin-bottom: 10vh;
+  background-color: transparent;
+}
+
 .phase-title {
+  width: 100%;
+  text-align: center;
+  color:$secondary-color;
   font-size: $font-size-x-large;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.phase-number {
-  background-color: $secondary-color;
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-size: $font-size-large;
-  color: $font-color-secondary;
-  margin-bottom: 16px;
-}
-
-.congratulations-message {
-  width: 80%;
-  font-size: $font-size-large;
-  margin: 16px 0;
 }
 
 .stars-container {
@@ -52,6 +48,14 @@
     width: 64px;
     height: 64px;
   }
+}
+
+.star {
+  color: $icon-color-primary;
+}
+
+.star-inactive {
+  color: $icon-color-tertiary;
 }
 
 .screen-navigator {
