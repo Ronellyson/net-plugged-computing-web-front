@@ -20,11 +20,15 @@
 
 .description {
   font-size: $font-size-medium;
+  font-weight: bold;
   color: $font-color-secondary;
   margin-bottom: 24px;
   font-family: $font-primary;
   text-align: center;
-  max-width: 80%;
+  width: 90%;
+  @media (min-width: 768px) {
+    width: 40%;
+  }
 }
 
 ul.settings-list {
