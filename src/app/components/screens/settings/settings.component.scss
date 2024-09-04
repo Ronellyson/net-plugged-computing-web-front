@@ -1,0 +1,29 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+ul {
+  margin-top: 10vh;
+  padding: 0;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  width: 320px;
+}
+
+.screen-navigator {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+}

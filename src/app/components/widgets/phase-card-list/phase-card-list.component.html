@@ -1,8 +1,8 @@
 <div class="phase-card-list">
-  <ng-container *ngFor="let phase of phases; let i = index">
+  <ng-container *ngFor="let phase of phases">
     <app-phase-card [phaseId]="phase.id"
-                    [phaseTitle]="phase.title">
+                    [phaseTitle]="phase.title"
+                    [isLocked]="!completedPhases.includes(phase.id) && phase.id !== completedPhases.length + 1">
     </app-phase-card>
   </ng-container>
 </div>
-

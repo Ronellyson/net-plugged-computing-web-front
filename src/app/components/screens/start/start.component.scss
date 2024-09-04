@@ -28,7 +28,7 @@ button {
     border-radius: 12px;
 
     @media (max-width: 768px) {
-        width: 80vw; /* Altere o tamanho conforme necessário */
-        font-size: $font-size-large; /* Ajuste o tamanho da fonte conforme necessário */
+      width: 80vw;
+      font-size: $font-size-large;
     }
 }

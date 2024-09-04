@@ -11,6 +11,14 @@
   background-color: $primary-color;
 }
 
+.phase-card.locked {
+  opacity: 0.5;
+}
+
+.enter-button[disabled] {
+  cursor: not-allowed;
+}
+
 @media (min-width: 1024px) {
   .phase-card {
     width: 25vw;

@@ -70,6 +70,5 @@ export class CongratulationsComponent implements OnInit, OnDestroy {
   restartPhase(): void {
     window.location.reload();
     this.errorTracker.resetErrors(this.phaseNumber);
-    this.questionAnswerService.clearAnswersForPhase(this.phaseNumber)
   }
 }
