@@ -6,6 +6,7 @@ import { phases } from '../../assets/data/phase';
 })
 export class QuestionAnswerService {
   private storageKey = 'questionAnswers';
+  private completedPhasesKey = 'completedPhases';
   private correctAnswersMap: { [phaseNumber: number]: { [questionId: number]: number } } = {};
   private completedPhases: Set<number> = new Set();
 
@@ -15,25 +16,25 @@ export class QuestionAnswerService {
   }
 
   private loadAnswers(): void {
-    const storedAnswers = sessionStorage.getItem(this.storageKey);
+    const storedAnswers = localStorage.getItem(this.storageKey);
     if (storedAnswers) {
       this.correctAnswersMap = JSON.parse(storedAnswers);
     }
   }
 
   private saveAnswers(): void {
-    sessionStorage.setItem(this.storageKey, JSON.stringify(this.correctAnswersMap));
+    localStorage.setItem(this.storageKey, JSON.stringify(this.correctAnswersMap));
   }
 
   private loadCompletedPhases(): void {
-    const storedCompletedPhases = sessionStorage.getItem('completedPhases');
+    const storedCompletedPhases = localStorage.getItem(this.completedPhasesKey);
     if (storedCompletedPhases) {
       this.completedPhases = new Set(JSON.parse(storedCompletedPhases));
     }
   }
 
   private saveCompletedPhases(): void {
-    sessionStorage.setItem('completedPhases', JSON.stringify(Array.from(this.completedPhases)));
+    localStorage.setItem(this.completedPhasesKey, JSON.stringify(Array.from(this.completedPhases)));
   }
 
   private updateCompletedPhases(): void {

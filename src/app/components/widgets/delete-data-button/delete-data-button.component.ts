@@ -18,9 +18,20 @@ export class DeleteDataButtonComponent {
   deleteAppDataLocalStorage() {
     const confirmation = window.confirm('Tem certeza de que deseja excluir todos os dados? Esta ação não pode ser desfeita');
     if (confirmation) {
-      sessionStorage.clear()
-      this.router.navigate(['home']);
+      const keys: string[] = [
+        'questionAnswers',
+        'completedPhases',
+        'questionErrors',
+      ];
+
+      // Remove os itens do localStorage
+      keys.forEach((key) => localStorage.removeItem(key));
+
+      this.router.navigate(['start']);
       this.toastr.success('Todos dados apagados com sucesso!');
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000);
     }
   }
 }
