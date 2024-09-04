@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class QuestionErrorTrackerService {
-  private storageKeyPrefix = 'QuestionErrors_';
+  private storageKeyPrefix = 'questionErrors';
 
   constructor() { }
 

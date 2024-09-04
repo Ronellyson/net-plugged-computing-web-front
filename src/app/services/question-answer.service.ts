@@ -75,4 +75,9 @@ export class QuestionAnswerService {
   getCorrectAnswersForPhase(phaseNumber: number): { [questionId: number]: number } | undefined {
     return this.correctAnswersMap[phaseNumber];
   }
+
+  resetCorrectAnswersForPhase(phaseNumber: number): void {
+    delete this.correctAnswersMap[phaseNumber];
+    this.saveAnswers();
+  }
 }
