@@ -7,7 +7,7 @@
   justify-content: start;
   align-items: start;
   background-color: $secondary-color;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 .no-transition .carousel-item {
