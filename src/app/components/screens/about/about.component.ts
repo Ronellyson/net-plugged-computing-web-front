@@ -8,8 +8,12 @@ import { ScreenNavigatorComponent } from '../../widgets/screen-navigator/screen-
     ScreenNavigatorComponent
   ],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
+
+  openUrl(url: string): void {
+    window.open(url, '_blank');
+  }
 
 }

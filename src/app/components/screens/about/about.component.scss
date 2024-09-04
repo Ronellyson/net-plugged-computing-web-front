@@ -1,9 +1,61 @@
+@import "../../../../assets/styles/variables";
+
 .about-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-color: $secondary-color;
+}
+
+.content-container {
+  padding: 32px;
+  max-width: 800px;
+  text-align: center;
+  margin-top: 20px;
+  overflow: scroll;
+
+  .logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 32px;
+  }
+
+  .text {
+    margin: 16px 0;
+    font-size: $font-size-medium;
+    line-height: 1.6;
+    color: $font-color-secondary;
+    font-family: $font-primary;
+  }
+
+  .img-site {
+    width: 240px;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .sub-container-box-content {
+    margin-top: 40px;
+
+    .btn-apps {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+
+      .img-site {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.extra-space {
+  height: 70px;
 }
 
 .screen-navigator {

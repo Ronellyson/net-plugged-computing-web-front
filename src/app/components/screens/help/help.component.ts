@@ -8,7 +8,7 @@ import { ScreenNavigatorComponent } from '../../widgets/screen-navigator/screen-
     ScreenNavigatorComponent
   ],
   templateUrl: './help.component.html',
-  styleUrl: './help.component.scss'
+  styleUrls: ['./help.component.scss']
 })
 export class HelpComponent {
 

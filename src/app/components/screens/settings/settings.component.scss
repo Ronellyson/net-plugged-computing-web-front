@@ -1,29 +1,65 @@
+@import "../../../../assets/styles/variables";
+
 .settings-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-color: $secondary-color;
+  padding: 32px;
 }
 
-ul {
-  margin-top: 10vh;
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: $font-size-medium;
+  color: $font-color-secondary;
+  margin-bottom: 24px;
+  font-family: $font-primary;
+  text-align: center;
+  max-width: 80%;
+}
+
+ul.settings-list {
+  margin-top: 20px;
   padding: 0;
-  width: 100vw;
-  height: 50vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-li {
+li.settings-item {
   width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+li.settings-item app-delete-data-button{
+  width: 100%;
+}
+
+.item-description {
+  font-size: $font-size-small;
+  color: $font-color-secondary;
+  margin-top: 8px;
+  font-family: $font-primary;
+  text-align: center;
 }
 
 .screen-navigator {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  z-index: 1000;
 }
