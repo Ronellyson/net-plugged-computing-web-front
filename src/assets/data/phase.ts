@@ -56,10 +56,10 @@ export const phases = [
         question: 'Qual a principal função das redes de computadores?',
         icon: 'lan',
         options: [
-          'Compartilhar arquivos',
-          'Conectar dispositivos',
-          'Guardar dados',
-          'Executar aplicações',
+          'Compartilhar dados e conectar dispositivos',
+          'Apenas conectar dispositivos',
+          'Apenas guardar dados',
+          'Apenas executar aplicações',
         ],
         answerIndex: 0,
       },
@@ -135,7 +135,7 @@ export const phases = [
         icon: 'public',
         options: [
           'A capacidade de armazenar dados em CDs',
-          'A criação de redes sociais',
+          'A criação dos sistemas de redes sociais',
           'A invenção do rádio',
           'A evolução dos telefones fixos',
         ],
@@ -188,7 +188,7 @@ export const phases = [
         options: [
           'Uma senha que inclui apenas letras',
           'Uma senha curta e fácil de lembrar',
-          'Uma senha que combina letras, números e símbolos',
+          'Uma senha que não é curta e que combina letras, números e símbolos',
           'Uma senha com seu nome',
         ],
         answerIndex: 2,
@@ -219,14 +219,14 @@ export const phases = [
       {
         id: 1,
         type: 'text',
-        icon: 'info',
-        text: 'Através do site "Computação plugada: Redes" Você aprendeu sobre redes de computadores, Internet e segurança online.',
+        icon: 'book',
+        text: 'Depois de usar o “Computação Plugada Redes”, esperamos que você tenha aprendido um pouco mais sobre redes de computadores, Internet e segurança online',
       },
       {
         id: 2,
         type: 'text',
         icon: 'check_circle',
-        text: 'Entendemos como as redes conectam dispositivos e facilitam a comunicação.',
+        text: 'Discutimos como as redes conectam dispositivos e facilitam a comunicação.',
       },
       {
         id: 3,
@@ -272,15 +272,17 @@ export const phases = [
         icon: 'security',
         options: [
           'Não é muito importante',
-          'Apenas para empresas',
-          'Para proteger informações pessoais e financeiras',
-          'Para acessar sites mais rápido',
+          'É importante apenas para empresas',
+          'Serve para proteger informações pessoais e financeiras',
+          'Serve para acessar sites mais rápido',
         ],
         answerIndex: 2,
       },
       {
         id: 8,
         type: 'congratulation',
+        feedbackEnable: true,
+        feedbackFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeSa_bao-otDkPtlPYV3_ZDQH1MNOvdQIs4yyTwDsNab5JU9A/viewform?usp=sf_link'
       },
     ],
   },

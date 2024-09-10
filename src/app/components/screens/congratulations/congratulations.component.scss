@@ -45,6 +45,10 @@
   align-items: center;
 }
 
+.congratulations-message {
+  margin-top: 16px;
+}
+
 .stars-container {
   margin-top: 16px;
   mat-icon {
@@ -65,7 +69,7 @@
 .screen-navigator {
   display: flex;
   justify-content: center;
-  gap: 20%;
+  gap: 5%;
   align-items: center;
   background-color: $primary-color;
   position: fixed;
@@ -76,7 +80,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
+
   button {
     width: 84px;
     height: 84px;

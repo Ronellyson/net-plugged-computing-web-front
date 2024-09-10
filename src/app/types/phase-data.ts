@@ -11,6 +11,8 @@ export interface Content {
   question?: string;
   options?: string[];
   answerIndex?: number;
+  feedbackEnable?: boolean;
+  feedbackFormUrl?:string;
 }
 
 export interface Phase {

@@ -3,14 +3,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   gap: 16px;
   padding: 16px;
   overflow-y: auto;
   width: 100vw;
   box-sizing: border-box;
-}
 
-.extra-space {
-  height: 70px;
+  app-phase-card-button {
+    width: 320px;
+    height: 100px;
+
+    @media (min-width: 768px) {
+      width: 360px;
+      height: 100px;
+    }
+  }
 }

@@ -25,8 +25,10 @@ export class CongratulationsComponent implements OnInit, OnDestroy {
   @Input() phaseTitle: string | undefined;
   @Input() phaseNumber = 0;
   @Input() totalQuestions: number = 0;
-  totalErrors: number = 0;
+  @Input() feedbackEnable: boolean | undefined;
+  @Input() feedbackFormUrl: string | undefined;
 
+  totalErrors: number = 0;
   congratulations_message = '';
   starsArray: number[] = [];
   intervalId: any;
@@ -43,9 +45,8 @@ export class CongratulationsComponent implements OnInit, OnDestroy {
         ? this.errorTracker.getErrors(this.phaseNumber)
         : 0;
       this.calculateStars();
+      this.updateCongratulationsMessage();
     }, 1000);
-
-    this.congratulations_message = `Parabéns por ter completado a fase ${this.phaseNumber}. Aqui está sua pontuação:`;
   }
 
   ngOnDestroy(): void {
@@ -63,6 +64,22 @@ export class CongratulationsComponent implements OnInit, OnDestroy {
     }
   }
 
+  updateCongratulationsMessage(): void {
+    const starsCount = this.starsArray.length;
+
+    if (starsCount === 5) {
+      this.congratulations_message = 'Parabéns! Você atingiu a pontuação máxima!';
+    } else if (starsCount === 4) {
+      this.congratulations_message = 'Ótimo trabalho! Você está quase lá!';
+    } else if (starsCount === 3) {
+      this.congratulations_message = 'Bom esforço! Continue praticando!';
+    } else if (starsCount === 2) {
+      this.congratulations_message = 'Você pode melhorar! Não desista!';
+    } else {
+      this.congratulations_message = 'Continue tentando! Cada erro é uma oportunidade de aprendizado!';
+    }
+  }
+
   navigate(screen: string): void {
     this.router.navigate([`/${screen}`]);
   }
@@ -71,5 +88,9 @@ export class CongratulationsComponent implements OnInit, OnDestroy {
     window.location.reload();
     this.errorTracker.resetErrors(this.phaseNumber);
     this.questionAnswerService.resetCorrectAnswersForPhase(this.phaseNumber);
+  }
+
+  openFeedbackFormInNewTab() {
+    window.open(this.feedbackFormUrl, '_blank');
   }
 }

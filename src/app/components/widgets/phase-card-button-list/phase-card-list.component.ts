@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PhaseCardComponent } from '../phase-card/phase-card.component';
 import { NgFor } from '@angular/common';
 import { Phase } from '../../../types/phase-data';
 import { phases } from '../../../../assets/data/phase';
 import { QuestionAnswerService } from '../../../services/question-answer.service';
+import { PhaseCardButtonComponent } from '../phase-card-button/phase-card-button.component';
 
 @Component({
   selector: 'app-phase-card-list',
   standalone: true,
   imports: [
-    PhaseCardComponent,
+    PhaseCardButtonComponent,
     NgFor
   ],
   templateUrl: './phase-card-list.component.html',

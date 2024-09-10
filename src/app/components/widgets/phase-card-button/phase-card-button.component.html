@@ -1,0 +1,6 @@
+<button class="phase-card-button" [ngClass]="{ 'locked': isLocked }" (click)="selectPhase()" [disabled]="isLocked">
+  <div class="phase-info">
+    <h4 class="phase-id">{{ "Fase " + phaseId }}</h4>
+    <p class="phase-title">{{ phaseTitle }}</p>
+  </div>
+</button>

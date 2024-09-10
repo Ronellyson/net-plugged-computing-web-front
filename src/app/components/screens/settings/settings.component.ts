@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ScreenNavigatorComponent } from '../../widgets/screen-navigator/screen-navigator.component';
-import { PhaseCardListComponent } from '../../widgets/phase-card-list/phase-card-list.component';
+import { PhaseCardListComponent } from '../../widgets/phase-card-button-list/phase-card-list.component';
 import { DeleteDataButtonComponent } from "../../widgets/delete-data-button/delete-data-button.component";
 
 @Component({

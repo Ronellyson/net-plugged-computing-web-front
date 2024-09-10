@@ -4,18 +4,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   background-color: $secondary-color;
-  padding: 32px;
 }
 
 .logo {
   width: 320px;
   height: 240px;
   margin: 1%;
+}
+
+.content-container {
+  padding: 32px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  overflow-y: scroll;
 }
 
 .description {
@@ -26,8 +35,9 @@
   font-family: $font-primary;
   text-align: center;
   width: 90%;
+
   @media (min-width: 768px) {
-    width: 40%;
+    width: 60%;
   }
 }
 
@@ -41,15 +51,24 @@ ul.settings-list {
 }
 
 li.settings-item {
-  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 16px;
-}
+  width: 320px;
+  @media (min-width: 768px) {
+    width: 360px;
+  }
 
-li.settings-item app-delete-data-button{
-  width: 100%;
+  app-delete-data-button {
+    width: 320px;
+    height: 100px;
+
+    @media (min-width: 768px) {
+      width: 360px;
+      height: 100px;
+    }
+  }
 }
 
 .item-description {

@@ -7,6 +7,7 @@
   </div>
   <div class="content">
     <img src="assets/logo-vertical.svg" class="logo"/>
+    <h2 class="congratulations-message">{{congratulations_message}}</h2>
     <div class="stars-container">
       <!-- Estrelas preenchidas -->
       <mat-icon *ngFor="let star of starsArray" class="star">star</mat-icon>
@@ -21,6 +22,12 @@
         <mat-icon>home</mat-icon>
       </button>
       <span class="button-label">Home</span>
+    </div>
+    <div class="button-container" [hidden]="">
+      <button mat-icon-button (click)="openFeedbackFormInNewTab()">
+        <mat-icon>assignment</mat-icon>
+      </button>
+      <span class="button-label">Feedback</span>
     </div>
     <div class="button-container">
       <button mat-icon-button (click)="restartPhase()">

@@ -1,7 +1,7 @@
 @import "../../../../assets/styles/variables";
 
 button {
-  min-width: 360px;
+  width: 100%;
   background-color: $button-color-primary;
   border: none;
   border-radius: 16px;
@@ -10,10 +10,6 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
   color: $font-color-primary;
-
-  @media (min-width: 768px) {
-    width: 640px;
-  }
 
   &:active {
     background-color: darken($button-color-primary, 10%);

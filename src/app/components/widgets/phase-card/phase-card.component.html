@@ -1,9 +1,0 @@
-<div class="phase-card" [ngClass]="{ 'locked': isLocked }">
-  <div class="phase-info">
-    <h4 class="phase-id">{{ "Fase " + phaseId }}</h4>
-    <p class="phase-title">{{ phaseTitle }}</p>
-  </div>
-  <button class="enter-button" (click)="selectPhase()" [disabled]="isLocked">
-    <mat-icon>{{ isLocked ? 'lock' : 'arrow_forward' }}</mat-icon>
-  </button>
-</div>
