@@ -4,9 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: $secondary-color;
   height: 100vh;
+  padding-top: calc(66px + 10vh);
 }
 
 .text-content-container {
@@ -36,11 +37,12 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  top: 16px;
+  top: 0;
+  width: 100%;
   padding: 0 20px;
-  height: 50px;
-  margin-bottom: 10vh;
+  height: 66px;
   background-color: transparent;
+  z-index: 10;
 }
 
 .phase-title {
